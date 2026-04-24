@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>WYK·LYC·LXZ·AYN·LS(厌恶版) 寝室</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(145deg, #1e2b2c 0%, #0f1a1b 100%);
+            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        /* 寝室头牌 */
+        .dorm-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .dorm-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFE6B0, #FFB347);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            letter-spacing: 2px;
+        }
+        .dorm-sub {
+            color: #c0cfb2;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            border-top: 1px dashed #ffb34766;
+            display: inline-block;
+            padding-top: 0.5rem;
+        }
+        /* 成员网格 */
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        /* 卡片通用样式 */
+        .card {
+            background: rgba(30, 40, 35, 0.75);
+            backdrop-filter: blur(4px);
+            border-radius: 2rem;
+            width: 220px;
+            padding: 1.5rem 1rem 1.8rem;
+            text-align: center;
+            transition: all 0.25s ease;
+            border: 1px solid #ffb34740;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #ffb347;
+            background: #2a3a36;
+            box-shadow: 0 18px 28px rgba(0,0,0,0.4);
+        }
+        /* 普通成员头像 */
+        .avatar {
+            font-size: 4.2rem;
+            filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.3));
+            margin-bottom: 0.8rem;
+        }
+        .name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(145deg, #F9F3E2, #FFD966);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+        .role {
+            font-size: 0.85rem;
+            background: #00000055;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            margin: 0.6rem 0 0.4rem;
+            color: #e9f5db;
+        }
+        .badge {
+            font-size: 0.75rem;
+            background: #2c2e2a;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            color: #ffcf9a;
+        }
+        /* 厌恶版特殊样式 —— 专属黑红*/
+        .card-disgust {
+            background: #2a1a1a;
+            border: 1px solid #ff6b6b;
+            position: relative;
+            overflow: hidden;
+        }
+        .card-disgust::before {
+            content: "⚠️ 厌恶版 ⚠️";
+            position: absolute;
+            top: 12px;
+            right: -25px;
+            background: #ff4d4d;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: bold;
+            padding: 0.2rem 2rem;
+            transform: rotate(35deg);
+            box-shadow: 0 2px 6px black;
+            white-space: nowrap;
+        }
+        .card-disgust .name {
+            background: linear-gradient(145deg, #ffbaba, #ff6b6b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .disgust-tag {
+            background: #911;
+            color: #ffc6c6;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 0.4rem;
+        }
+        /* 寝室暗号彩蛋 */
+        .easter-egg {
+            text-align: center;
+            margin-top: 4rem;
+            font-size: 0.85rem;
+            color: #8faa7b;
+            cursor: pointer;
+            user-select: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.7rem;
+            color: #6c7c64;
+        }
+        @media (max-width: 640px) {
+            .dorm-title { font-size: 2rem; }
+            .card { width: 160px; padding: 1rem 0.5rem; }
+            .avatar { font-size: 3rem; }
+            .name { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="dorm-header">
+        <div class="dorm-title">🏠 WYK · LYC · LXZ · AYN · LS(厌恶版)</div>
+        <div class="dorm-sub">「 全宇宙最离谱寝室 ｜ 厌学但互相嫌弃 ｜ 人类早期驯服期末珍贵影像 」</div>
+    </div>
+
+    <div class="team-grid">
+        <!-- 成员卡片 WYK -->
+        <div class="card">
+            <div class="avatar">🐺</div>
+            <div class="name">WYK</div>
+            <div class="role">⚡ 熬夜战神</div>
+            <div class="badge">#神秘军火商</div>
+        </div>
+        <!-- 成员卡片 LYC -->
+        <div class="card">
+            <div class="avatar">🍜</div>
+            <div class="name">LYC</div>
+            <div class="role">🎧 耳机半永久</div>
+            <div class="badge">#泡面品鉴大师</div>
+        </div>
+        <!-- 成员卡片 LXZ -->
+        <div class="card">
+            <div class="avatar">🎮</div>
+            <div class="name">LXZ</div>
+            <div class="role">🕹️ 团灭发动机</div>
+            <div class="badge">#键盘冒奶</div>
+        </div>
+        <!-- 成员卡片 AYN  -->
+        <div class="card">
+            <div class="avatar">📸</div>
+            <div class="name">AYN</div>
+            <div class="role">✨ 气氛组组长</div>
+            <div class="badge">#拍照狂魔</div>
+        </div>
+        <!-- LS 厌恶版 特殊卡片 -->
+        <div class="card card-disgust">
+            <div class="avatar">💢</div>
+            <div class="name">LS</div>
+            <div class="role">💀 厌恶版·VIP</div>
+            <div class="disgust-tag">▮ 极度嫌弃 ▮</div>
+            <div class="badge" style="background:#331111;">#今日没挨打</div>
+        </div>
+    </div>
+    
+    <!-- 寝室神秘语录 （点击有惊喜）-->
+    <div class="easter-egg" id="click4surprise">
+        🧃 单击此处解锁寝室第十条公约 🧃
+    </div>
+    <div class="footer">
+        💡 本网站由“厌恶版LS”友情赞助 · 寝室日常概不负责 💡
+    </div>
+</div>
+
+<script>
+    const eggBtn = document.getElementById('click4surprise');
+    let clickCount = 0;
+    eggBtn.addEventListener('click', () => {
+        clickCount++;
+        const messages = [
+            "📢 公约10：禁止偷偷卷绩点 (抓到请全寝奶茶)",
+            "🚫 LS 今日不许阴阳怪气 (但是没用)",
+            "🍕 点外卖必须备注 '人类高质量寝室' 才准取餐",
+            "🎵 凌晨两点后听歌禁止外放 (除非给室友唱)",
+            "😂 厌恶版 LS 今天被少怼了一次，世界和平",
+            "✨ 寝室暗号：一纸双益 (强行上价值)",
+            "☕ 以上纯属虚构，寢室真相比网站刺激多了"
+        ];
+        const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+        eggBtn.innerHTML = `✨ ${randomMsg} ✨`;
+        setTimeout(() => {
+            if(clickCount > 0) {
+                eggBtn.innerHTML = '🧃 再单击一下 换一条寝室真言 🧃';
+            }
+        }, 1800);
+    });
+</script>
+</body>
+</html>
