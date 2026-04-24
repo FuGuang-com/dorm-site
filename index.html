@@ -20,7 +20,6 @@
             max-width: 1300px;
             margin: 0 auto;
         }
-        /* 寝室头牌 */
         .dorm-header {
             text-align: center;
             margin-bottom: 3rem;
@@ -43,7 +42,6 @@
             display: inline-block;
             padding-top: 0.5rem;
         }
-        /* 成员网格 */
         .team-grid {
             display: flex;
             flex-wrap: wrap;
@@ -51,12 +49,11 @@
             gap: 2rem;
             margin-top: 2rem;
         }
-        /* 卡片通用样式 */
         .card {
             background: rgba(30, 40, 35, 0.75);
             backdrop-filter: blur(4px);
             border-radius: 2rem;
-            width: 220px;
+            width: 240px;
             padding: 1.5rem 1rem 1.8rem;
             text-align: center;
             transition: all 0.25s ease;
@@ -67,9 +64,7 @@
             transform: translateY(-8px);
             border-color: #ffb347;
             background: #2a3a36;
-            box-shadow: 0 18px 28px rgba(0,0,0,0.4);
         }
-        /* 普通成员头像 */
         .avatar {
             font-size: 4.2rem;
             filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.3));
@@ -99,8 +94,10 @@
             padding: 0.2rem 0.7rem;
             border-radius: 30px;
             color: #ffcf9a;
+            display: inline-block;
+            margin-top: 5px;
         }
-        /* 厌恶版特殊样式 —— 专属黑红*/
+        /* LS厌恶版特殊样式 */
         .card-disgust {
             background: #2a1a1a;
             border: 1px solid #ff6b6b;
@@ -137,7 +134,46 @@
             display: inline-block;
             margin-top: 0.4rem;
         }
-        /* 寝室暗号彩蛋 */
+        /* 攻击按钮组 */
+        .attack-buttons {
+            margin-top: 1rem;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+        .attack-btn {
+            border: none;
+            background: #2c2e2a;
+            color: #ffcf9a;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.1s linear;
+            box-shadow: 0 2px 4px black;
+        }
+        .attack-btn:active {
+            transform: scale(0.96);
+        }
+        .bomb-btn {
+            background: #7a2e2e;
+            color: #ffb4b4;
+        }
+        .sock-btn {
+            background: #3a5a3a;
+            color: #c6f7c6;
+        }
+        .attack-counter {
+            font-size: 0.7rem;
+            margin-top: 8px;
+            color: #ffa07a;
+            background: #00000066;
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 30px;
+        }
+        /* 彩蛋区 */
         .easter-egg {
             text-align: center;
             margin-top: 4rem;
@@ -154,9 +190,10 @@
         }
         @media (max-width: 640px) {
             .dorm-title { font-size: 2rem; }
-            .card { width: 160px; padding: 1rem 0.5rem; }
+            .card { width: 180px; padding: 1rem 0.5rem; }
             .avatar { font-size: 3rem; }
             .name { font-size: 1.3rem; }
+            .attack-btn { padding: 4px 10px; font-size: 0.7rem; }
         }
     </style>
 </head>
@@ -164,70 +201,162 @@
 <div class="container">
     <div class="dorm-header">
         <div class="dorm-title">🏠 WYK · LYC · LXZ · AYN · LS(厌恶版)</div>
-        <div class="dorm-sub">「 全宇宙最离谱寝室 ｜ 厌学但互相嫌弃 ｜ 人类早期驯服期末珍贵影像 」</div>
+        <div class="dorm-sub">「 全宇宙最离谱寝室 ｜ 互相伤害指数 ★★★★★ 」</div>
     </div>
 
     <div class="team-grid">
-        <!-- 成员卡片 WYK -->
+        <!-- WYK -->
         <div class="card">
             <div class="avatar">🐺</div>
             <div class="name">WYK</div>
             <div class="role">⚡ 熬夜战神</div>
             <div class="badge">#神秘军火商</div>
         </div>
-        <!-- 成员卡片 LYC -->
+        <!-- LYC -->
         <div class="card">
             <div class="avatar">🍜</div>
             <div class="name">LYC</div>
             <div class="role">🎧 耳机半永久</div>
             <div class="badge">#泡面品鉴大师</div>
         </div>
-        <!-- 成员卡片 LXZ -->
+        <!-- LXZ -->
         <div class="card">
             <div class="avatar">🎮</div>
             <div class="name">LXZ</div>
             <div class="role">🕹️ 团灭发动机</div>
             <div class="badge">#键盘冒奶</div>
         </div>
-        <!-- 成员卡片 AYN  -->
+        <!-- AYN -->
         <div class="card">
             <div class="avatar">📸</div>
             <div class="name">AYN</div>
             <div class="role">✨ 气氛组组长</div>
             <div class="badge">#拍照狂魔</div>
         </div>
-        <!-- LS 厌恶版 特殊卡片 -->
-        <div class="card card-disgust">
+        <!-- LS 厌恶版 + 攻击按钮 -->
+        <div class="card card-disgust" id="lsCard">
             <div class="avatar">💢</div>
             <div class="name">LS</div>
             <div class="role">💀 厌恶版·VIP</div>
             <div class="disgust-tag">▮ 极度嫌弃 ▮</div>
             <div class="badge" style="background:#331111;">#今日没挨打</div>
+            <!-- 攻击按钮组 -->
+            <div class="attack-buttons">
+                <button class="attack-btn bomb-btn" id="bombBtn">💣 扔炸弹</button>
+                <button class="attack-btn sock-btn" id="sockBtn">🧦 扔臭袜子</button>
+            </div>
+            <div class="attack-counter" id="attackCounter">攻击次数: 0</div>
         </div>
     </div>
-    
-    <!-- 寝室神秘语录 （点击有惊喜）-->
+
+    <!-- 彩蛋 -->
     <div class="easter-egg" id="click4surprise">
         🧃 单击此处解锁寝室第十条公约 🧃
     </div>
     <div class="footer">
-        💡 本网站由“厌恶版LS”友情赞助 · 寝室日常概不负责 💡
+        💡 本网站由“厌恶版LS”友情赞助 · 扔炸弹扔袜子随机掉落 💡
     </div>
 </div>
 
 <script>
+    let attackCount = 0;
+    const bombBtn = document.getElementById('bombBtn');
+    const sockBtn = document.getElementById('sockBtn');
+    const counterSpan = document.getElementById('attackCounter');
+    const lsCard = document.getElementById('lsCard');
+
+    // 更新计数显示
+    function updateCounter() {
+        counterSpan.innerText = `攻击次数: ${attackCount}`;
+    }
+
+    // 闪红效果
+    function flashCard(color) {
+        lsCard.style.transition = 'background 0.1s';
+        lsCard.style.backgroundColor = color;
+        setTimeout(() => {
+            lsCard.style.backgroundColor = '';
+        }, 200);
+    }
+
+    // 随机消息
+    const bombMessages = [
+        "💥 炸弹正中 LS 脑门！该！",
+        "🔥 厌恶版 LS 被炸得满地找头～",
+        "💣 轰！LS 变成非洲黑炭了！",
+        "🤯 LS 的厌恶值达到了顶峰！"
+    ];
+    const sockMessages = [
+        "🧦 一只千年臭袜子塞进 LS 枕头！",
+        "👃 臭气熏天！LS 当场晕厥！",
+        "🤢 LS 捂着鼻子逃跑～ 厌恶版+max",
+        "🧦 袜子暴击！LS 宣布投降！"
+    ];
+
+    function showMessage(msg) {
+        // 创建一个漂浮提示
+        const toast = document.createElement('div');
+        toast.innerText = msg;
+        toast.style.position = 'fixed';
+        toast.style.bottom = '30%';
+        toast.style.left = '50%';
+        toast.style.transform = 'translateX(-50%)';
+        toast.style.backgroundColor = '#000000cc';
+        toast.style.color = '#FFD966';
+        toast.style.padding = '10px 20px';
+        toast.style.borderRadius = '40px';
+        toast.style.fontSize = '1rem';
+        toast.style.fontWeight = 'bold';
+        toast.style.zIndex = '9999';
+        toast.style.backdropFilter = 'blur(8px)';
+        toast.style.border = '1px solid #ffb347';
+        document.body.appendChild(toast);
+        setTimeout(() => {
+            toast.remove();
+        }, 1500);
+    }
+
+    // 扔炸弹逻辑
+    bombBtn.addEventListener('click', () => {
+        attackCount++;
+        updateCounter();
+        flashCard('#aa2e2e');
+        const randomMsg = bombMessages[Math.floor(Math.random() * bombMessages.length)];
+        showMessage(randomMsg);
+        // 额外小彩蛋: 偶尔让LS卡片震动一下
+        lsCard.style.transform = 'translateX(4px)';
+        setTimeout(() => {
+            lsCard.style.transform = '';
+        }, 100);
+    });
+
+    // 扔袜子逻辑
+    sockBtn.addEventListener('click', () => {
+        attackCount++;
+        updateCounter();
+        flashCard('#5a5e2e');
+        const randomMsg = sockMessages[Math.floor(Math.random() * sockMessages.length)];
+        showMessage(randomMsg);
+        lsCard.style.transform = 'translateX(-3px)';
+        setTimeout(() => {
+            lsCard.style.transform = '';
+        }, 100);
+    });
+
+    // 彩蛋区原有功能
     const eggBtn = document.getElementById('click4surprise');
     let clickCount = 0;
     eggBtn.addEventListener('click', () => {
         clickCount++;
         const messages = [
-            "📢 公约10：禁止偷偷卷绩点 (抓到请全寝奶茶)",
+            "📢 公约10：禁止偷偷扔炸弹 (除非扔LS)",
             "🚫 LS 今日不许阴阳怪气 (但是没用)",
             "🍕 点外卖必须备注 '人类高质量寝室' 才准取餐",
             "🎵 凌晨两点后听歌禁止外放 (除非给室友唱)",
             "😂 厌恶版 LS 今天被少怼了一次，世界和平",
             "✨ 寝室暗号：一纸双益 (强行上价值)",
-            "☕ 以上纯属虚构，寢室真相比网站刺激多了"
+            "☕ 以上纯属虚构，寢室真相比网站刺激多了",
+            "🧦 刚才有人扔了袜子，LS 正在追杀凶手"
         ];
         const randomMsg = messages[Math.floor(Math.random() * messages.length)];
         eggBtn.innerHTML = `✨ ${randomMsg} ✨`;
